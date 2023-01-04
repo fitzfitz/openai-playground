@@ -6,6 +6,6 @@ const {
 } = require("../controller/openAiControllers");
 
 router.post("/", generateAnswer);
-router.get("/generate-image", generateImage);
+router.post("/generate-image", generateImage);
 
 module.exports = router;
