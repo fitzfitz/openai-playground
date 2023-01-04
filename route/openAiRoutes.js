@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { generateAnswer } = require("../controller/openAiControllers");
+const {
+  generateAnswer,
+  generateImage,
+} = require("../controller/openAiControllers");
 
-router.get("/", generateAnswer);
+router.post("/", generateAnswer);
+router.get("/generate-image", generateImage);
 
 module.exports = router;
