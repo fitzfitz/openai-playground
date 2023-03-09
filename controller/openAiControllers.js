@@ -17,7 +17,7 @@ const generateAnswer = async (req, res) => {
 
   try {
     const completion = await openai.createCompletion({
-      model: "text-davinci-003",
+      model: "text-davinci-002",
       prompt: prompt,
       // prompt: `${openingPrompt}\n${prompt}`,
       temperature: 0,
