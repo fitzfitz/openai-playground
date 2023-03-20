@@ -164,5 +164,4 @@ module.exports = {
   generateAnswer,
   generateImage,
   generateNames,
-  generateNames,
 };
