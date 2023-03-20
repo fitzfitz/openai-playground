@@ -117,13 +117,7 @@ const generateNames = async (req, res) => {
     meaning ? "Nama bermakna " + meaning + "." : ""
   } Tampilkan hasilnya dalam bentuk json. Contoh: [{name: "Nama anak", meaning: "Arti dari nama"}]`;
 
-  const messages = [
-    // {
-    //   role: "system",
-    //   content: "Anda berbahasa indonesia dan ahli dalam bidang nama.",
-    // },
-    { role: "user", content: prompt.trim() },
-  ];
+  const messages = [{ role: "user", content: prompt.trim() }];
 
   try {
     const completions = await openai.createChatCompletion({
@@ -136,8 +130,6 @@ const generateNames = async (req, res) => {
       presence_penalty: 0,
       n: 1,
     });
-
-    console.log(completions.data.choices[0].message.content);
 
     const names = completions.data.choices.map((choice) =>
       choice.message.content.replace(/[\n]/g, "").trim()
@@ -171,5 +163,6 @@ const generateNames = async (req, res) => {
 module.exports = {
   generateAnswer,
   generateImage,
+  generateNames,
   generateNames,
 };
