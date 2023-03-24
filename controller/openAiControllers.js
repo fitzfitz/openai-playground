@@ -5,6 +5,11 @@ const config = new Configuration({
 });
 const openai = new OpenAIApi(config);
 
+const configNami = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY_NAMI,
+});
+const openaiNami = new OpenAIApi(configNami);
+
 const uuid = () => {
   let d = new Date().getTime();
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
@@ -92,7 +97,7 @@ const generateNames = async (req, res) => {
   const messages = [{ role: "user", content: prompt.trim() }];
 
   try {
-    const completions = await openai.createChatCompletion({
+    const completions = await openaiNami.createChatCompletion({
       model: MODEL,
       messages,
       temperature: 0.7,
